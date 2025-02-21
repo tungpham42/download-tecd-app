@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <script>
+        window.onload = function () {
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+            // Improved Android detection
+            var isAndroid = /Android/i.test(userAgent) || /\bwv\b/.test(userAgent) || /Linux; U;/.test(userAgent);
+
+            // iOS detection (iPad, iPhone, iPod)
+            var isiOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
+
+            // macOS detection (includes Apple Silicon)
+            var isMacOS = /Macintosh|Mac OS X/i.test(userAgent) && navigator.maxTouchPoints > 0;
+
+            if (isAndroid) {
+                window.location.href = "https://play.google.com/store/apps/details?id=io.kambria.tecd.app&hl=vi";
+            } else if (isiOS || isMacOS) {
+                window.location.href = "https://apps.apple.com/vn/app/tecd/id6503892042?l=vi";
+            } else {
+                // Default fallback (e.g., show a landing page)
+                window.location.href = "https://tecd.kambria.io/";
+            }
+        };
+    </script>
+</head>
+<body>
+    <h1>Redirecting...</h1>
+    <p>If you are not redirected, <a href="https://tecd.kambria.io/">click here</a>.</p>
+</body>
+</html>
